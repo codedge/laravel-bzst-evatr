@@ -27,6 +27,11 @@ class EvatrXmlResponse
     /**
      * @var string
      */
+    private $responseCompanyName = '';
+
+    /**
+     * @var string
+     */
     private $street = '';
 
     /**
@@ -116,6 +121,9 @@ class EvatrXmlResponse
                 case "Firmenname":
                     $this->companyName = $value;
                     break;
+                case "Erg_Name":
+                    $this->responseCompanyName = $value;
+                    break;
                 case "Strasse":
                     $this->street = $value;
                     break;
@@ -184,6 +192,14 @@ class EvatrXmlResponse
     public function getCompanyName()
     {
         return $this->companyName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getResponseCompanyName()
+    {
+        return $this->responseCompanyName;
     }
 
     /**
@@ -333,6 +349,6 @@ class EvatrXmlResponse
      */
     private function _setErrorMessage($errorCode='')
     {
-        $this->errorMessage = trans('evatr::messages.215');
+        $this->errorMessage = trans('evatr::messages.' . $errorCode);
     }
 }

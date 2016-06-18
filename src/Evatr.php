@@ -3,6 +3,7 @@
 use PhpXmlRpc\Client;
 use PhpXmlRpc\Request;
 use PhpXmlRpc\Response;
+use PhpXmlRpc\Value;
 
 class Evatr
 {
@@ -160,13 +161,13 @@ class Evatr
         $this->response = $this->client->send(new Request(
             'evatrRPC',
             [
-                $this->ownUstId,
-                $this->foreignUstId,
-                $this->companyName,
-                $this->city,
-                $this->zipCode,
-                $this->street,
-                $this->printConfirmation
+                new Value($this->ownUstId),
+                new Value($this->foreignUstId),
+                new Value($this->companyName),
+                new Value($this->city),
+                new Value($this->zipCode),
+                new Value($this->street),
+                new Value($this->printConfirmation)
             ]
         ));
 
