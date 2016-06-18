@@ -1,0 +1,36 @@
+{
+  "name" : "codedge/laravel-bzst-evatr",
+  "description" : "A library for validating value added tax identification numbers (VAT ID) using the German Federal Ministry of Finance EVATR interface.",
+  "license": "MIT",
+  "keywords": [
+    "laravel",
+    "vat",
+    "vat no.",
+    "vat number",
+    "validation",
+    "evatr",
+  ],
+  "authors": [
+    {
+      "name": "Holger Lösken",
+      "email": "holger.loesken@codedge.de",
+      "homepage" : "https://codedge.de"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0",
+    "illuminate/support": "~5.*",
+    "phpxmlrpc/phpxmlrpc": "4.0",
+    "nesbot/carbon" : "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "Codedge\\Evatr\\": "src/"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0-dev"
+    }
+  }
+}
