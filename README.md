@@ -1,6 +1,8 @@
 # Laravel 5 package for EVATR - Validating VAT IDs
 
+[![Latest Stable Version](https://poser.pugx.org/codedge/laravel-bzst-evatr/v/stable?format=flat-square)](https://packagist.org/packages/codedge/laravel-bzst-evatr)
 [![StyleCI](https://styleci.io/repos/61383981/shield)](https://styleci.io/repos/61383981)
+[![License](https://poser.pugx.org/codedge/laravel-bzst-evatr/license?format=flat-square)](https://packagist.org/packages/codedge/laravel-bzst-evatr)
 
 This library is a wrapper for the XmlRPC interface to validate European VAT IDs.  
 See https://evatr.bff-online.de/eVatR/xmlrpc/ (German version).
