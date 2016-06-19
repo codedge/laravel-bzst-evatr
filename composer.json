@@ -10,6 +10,10 @@
     "validation",
     "evatr"
   ],
+  "support": {
+    "issues": "https://github.com/codedge/laravel-bzst-evatr/issues",
+    "source": "https://github.com/codedge/laravel-bzst-evatr"
+  },
   "authors": [
     {
       "name": "Holger Lösken",
@@ -26,11 +30,6 @@
   "autoload": {
     "psr-4": {
       "Codedge\\Evatr\\": "src/"
-    }
-  },
-  "extra": {
-    "branch-alias": {
-      "dev-master": "1.0-dev"
     }
   }
 }

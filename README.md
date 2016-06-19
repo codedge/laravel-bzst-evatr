@@ -1,6 +1,5 @@
 # Laravel 5 package for EVATR - Validating VAT IDs
-This library is a wrapper for the XmlRPC interface to validate European VAT IDs. 
-
+This library is a wrapper for the XmlRPC interface to validate European VAT IDs.  
 See https://evatr.bff-online.de/eVatR/xmlrpc/ (German version).
 
 With this library you can check an European VAT ID if it is valid. Additionally you can pass in and address of
@@ -13,18 +12,19 @@ The library supports the _simple_ and the _qualified_ request.
 * Qualified request:
   * Additionally checks if the address (company name, street, city and zip code) connected to the VAT ID matches with registered data in the foreign country. 
 
+All error messages are available in English or German - of course you can modify those as you like.
+
 ## Install with Composer
 To install the library using [Composer](https://getcomposer.org/):
 ```sh
-$ cd <YOUR LARAVEL PROJECT ROOT>
-$ composer require codedge/laravel-bzst-evatr:"dev-master"
+$ composer require codedge/laravel-bzst-evatr
 ```
 
 This adds the _codedge/laravel-bzst-evatr_ package to your `composer.json` and downloads the project.
 
 Next run:
 `php artisan vendor:publish` 
-to publish the translation files of the library to `resources/lang/vendor/<locale>/messages.php`. 
+to publish the translation files of the library to `resources/lang/vendor/evatr/<locale>/messages.php`. 
 
 ## Usage
 If using the facade, just do:
