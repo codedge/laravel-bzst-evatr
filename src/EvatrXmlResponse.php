@@ -307,7 +307,6 @@ class EvatrXmlResponse
         return $this->errorMessage;
     }
 
-
     /**
      * Splits a German date or a German time format depending on the delimiter.
      *
@@ -354,5 +353,4 @@ class EvatrXmlResponse
     {
         $this->errorMessage = trans('evatr::messages.'.$errorCode);
     }
-
 }

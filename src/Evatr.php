@@ -81,6 +81,8 @@ class Evatr
     }
 
     /**
+     * Set your own (German) VAT ID.
+     *
      * @param string $ustId
      *
      * @return $this
@@ -88,10 +90,13 @@ class Evatr
     public function setOwnUstId($ustId)
     {
         $this->ownUstId = $ustId;
+
         return $this;
     }
 
     /**
+     * Set the foreign VAT ID. This is just an alias for setOwnUstId().
+     *
      * @param string $ustId
      *
      * @return $this
@@ -99,10 +104,13 @@ class Evatr
     public function setUstId1($ustId)
     {
         $this->setOwnUstId($ustId);
+
         return $this;
     }
 
     /**
+     * Set the European / foreign VAT ID that you want to check.
+     *
      * @param string $ustId
      *
      * @return $this
@@ -129,7 +137,7 @@ class Evatr
     }
 
     /**
-     * Set the company name
+     * Set the company name.
      *
      * @param string $companyName
      *
@@ -143,7 +151,7 @@ class Evatr
     }
 
     /**
-     * Set the company street
+     * Set the company street.
      *
      * @param $street
      *
@@ -157,7 +165,7 @@ class Evatr
     }
 
     /**
-     * Set the companys zip code
+     * Set the companys zip code.
      *
      * @param string $zipCode
      *
@@ -171,7 +179,7 @@ class Evatr
     }
 
     /**
-     * Set the companys city
+     * Set the companys city.
      *
      * @param string $city
      *

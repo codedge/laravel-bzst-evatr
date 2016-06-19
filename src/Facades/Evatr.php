@@ -15,5 +15,4 @@ class Evatr extends Facade
     {
         return 'evatr';
     }
-
 }
