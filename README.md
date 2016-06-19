@@ -6,6 +6,13 @@ See https://evatr.bff-online.de/eVatR/xmlrpc/ (German version).
 With this library you can check an European VAT ID if it is valid. Additionally you can pass in and address of
 this European VAT ID and do an address check.
 
+The library supports the _simple_ and the _qualified_ request.
+
+* Simple request: 
+  * Checks if a certain foreign VAT ID is valid at the time the request is made.
+* Qualified request:
+  * Additionally checks if the address (company name, street, city and zip code) connected to the VAT ID matches with registered data in the foreign country. 
+
 ## Install with Composer
 To install the library using [Composer](https://getcomposer.org/):
 ```sh
@@ -27,12 +34,16 @@ If using the facade, just do:
 
 Route::get('/', function () {
 
-    Evatr::setOwnUstId('123');
-    Evatr::setForeignUstId('123');
+    Evatr::setOwnUstId('123');      // Or use an alias: Evatr::setUstId1('123');
+    Evatr::setForeignUstId('123');  // Or use an alias: Evatr::setUstId2('123');
+    
     Evatr::query(); // Fires the XmlRpc call
 
-    echo Evatr::getResponse()->getErrorCode();
-    echo Evatr::getResponse()->getErrorMessage();
+    echo 'Error code: ' . Evatr::getResponse()->getErrorCode();
+    echo 'Error message: ' . Evatr::getResponse()->getErrorMessage();
+
+    echo 'Date: ' . Evatr::getResponse()->getDate();
+    echo 'Time: ' . Evatr::getResponse()->getTime();
 
 });
 ```
@@ -48,13 +59,19 @@ Route::get('/', function (Codedge\Evatr\Evatr $evatr) {
           ->setForeignUstId('123')
           ->query(); // Fires the XmlRpc call
 
-    echo $evatr->getResponse()->getErrorCode();
-    echo $evatr->getResponse()->getErrorMessage();
+    echo 'Error code: ' . $evatr->getResponse()->getErrorCode();     // Get the interface error code
+    echo 'Error message: ' . $evatr->getResponse()->getErrorMessage();  // Get the interface error message
+    
+    echo 'Date: ' . $evatr->getResponse()->getDate();
+    echo 'Time: ' . $evatr->getResponse()->getTime();
 
 });
 ```
 
+All date and time methods return a [Carbon](http://carbon.nesbot.com/) instance for better and further handling.  
+
 ### Request - Available methods and fields
+
 Depending if you want to send a _simple_ or _qualified_ request please see what parameters need to be set:
 
 | Field name     | Description                   | Simple request | Qualified request | Method name                   |
@@ -74,6 +91,10 @@ Additionally to the response field the response returns the following fields:
 | ------------- | -------------------------------------------------------------- | ---------------- |
 | Error Code    | [See avail. error codes](resources/lang/en/messages.php)       | getErrorCode     |
 | Error Message | [See avail. error messages](resources/lang/en/messages.php)    | getErrorMessage  |
+| Date          | Date of the request                                            | getDate          |
+| Time          | Time of the request                                            | getTime          |
+| Valid from    | Start date of validity of the foreign VAT ID. Only filled with error code 203 and 204. | getValidFrom |
+| Valid until   | End date of validity of the foreign VAT ID. Only filled with error code 204. | getValidUntil |
 | Erg_Name   | Result for the requested company name     | getResponseCompany |
 | Erg_City   | Result for the requested company city     | getResponseCity    |
 | Erg_Street | Result for the requested company street   | getResponseStreet  |
