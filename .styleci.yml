@@ -3,7 +3,6 @@ preset: laravel
 risky: false
 
 enabled:
-  - blank_line_after_namespace
   - cast_spaces
   - short_array_syntax
   - no_whitespace_in_blank_lines
