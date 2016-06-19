@@ -1,4 +1,6 @@
-<?php namespace Codedge\Evatr;
+<?php
+
+namespace Codedge\Evatr;
 
 use Carbon\Carbon;
 
@@ -100,11 +102,10 @@ class EvatrXmlResponse
         $this->process();
     }
 
-
     public function process()
     {
         foreach ($this->xml->children() as $child) {
-            if($child->count() === 0) {
+            if ($child->count() === 0) {
                 continue;
             }
 
@@ -112,62 +113,62 @@ class EvatrXmlResponse
             $value = $child->value->array->data->value[1]->string->__toString();
 
             switch ($key) {
-                case "UstId_1":
+                case 'UstId_1':
                     $this->ownUstId = (string) $value;
                     break;
-                case "UstId_2":
+                case 'UstId_2':
                     $this->foreignUstId = $value;
                     break;
-                case "Firmenname":
+                case 'Firmenname':
                     $this->companyName = $value;
                     break;
-                case "Erg_Name":
+                case 'Erg_Name':
                     $this->responseCompanyName = $value;
                     break;
-                case "Strasse":
+                case 'Strasse':
                     $this->street = $value;
                     break;
-                case "Erg_Str":
+                case 'Erg_Str':
                     $this->responseStreet = $value;
                     break;
-                case "Ort":
+                case 'Ort':
                     $this->city = $value;
                     break;
-                case "Erg_Ort":
+                case 'Erg_Ort':
                     $this->responseCity = $value;
                     break;
-                case "PLZ":
+                case 'PLZ':
                     $this->zipCode = $value;
                     break;
-                case "Erg_PLZ":
+                case 'Erg_PLZ':
                     $this->responseZipCode = $value;
                     break;
-                case "Datum":
+                case 'Datum':
                     $arr = $this->_getDateTimeArray($value);
                     $this->date = Carbon::createFromDate($arr[2], $arr[1], $arr[0]);
                     break;
-                case "Uhrzeit":
+                case 'Uhrzeit':
                     $arr = $this->_getDateTimeArray($value, ':');
                     $this->time = Carbon::createFromTime($arr[0], $arr[1], $arr[2]);
                     break;
-                case "Gueltig_ab":
+                case 'Gueltig_ab':
                     $arr = $this->_getDateTimeArray($value);
                     $this->validFrom = Carbon::createFromDate($arr[2], $arr[1], $arr[0]);
                     break;
-                case "Gueltig_bis":
+                case 'Gueltig_bis':
                     $arr = $this->_getDateTimeArray($value);
                     $this->validUntil = Carbon::createFromDate($arr[2], $arr[1], $arr[0]);
                     break;
-                case "Druck":
+                case 'Druck':
                     $this->printConfirmation = $this->_getPrintConfirmationOption($value);
                     break;
-                case "ErrorCode":
+                case 'ErrorCode':
                     $this->errorCode = (int) $value;
                     break;
             }
         }
 
-        $this->_setErrorMessage( (string) $this->errorCode );
+        $this->_setErrorMessage((string) $this->errorCode);
     }
 
     /**
@@ -251,7 +252,7 @@ class EvatrXmlResponse
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isPrintConfirmation()
     {
@@ -308,7 +309,7 @@ class EvatrXmlResponse
 
 
     /**
-     * Splits a German date or a German time format depending on the delimiter
+     * Splits a German date or a German time format depending on the delimiter.
      *
      * Example:
      *   Date(dd.mm.yyyy): 31.03.2016
@@ -316,25 +317,27 @@ class EvatrXmlResponse
      *
      * @param string $string
      * @param string $delim
+     *
      * @return array
      */
-    private function _getDateTimeArray($string='', $delim='.')
+    private function _getDateTimeArray($string = '', $delim = '.')
     {
         $arr = [
-            null, null, null
+            null, null, null,
         ];
 
-        if(!empty($string)) {
-            $arr = preg_split('/\\' . $delim . '/', $string);
+        if (! empty($string)) {
+            $arr = preg_split('/\\'.$delim.'/', $string);
         }
 
         return $arr;
     }
 
     /**
-     * Returns the "translated" and converted valued for a confirmation/official confirmation
+     * Returns the "translated" and converted valued for a confirmation/official confirmation.
      *
      * @param string $option
+     *
      * @return bool
      */
     private function _getPrintConfirmationOption($option)
@@ -343,12 +346,13 @@ class EvatrXmlResponse
     }
 
     /**
-     * Set the correct error message depending on the error code
+     * Set the correct error message depending on the error code.
      *
      * @param string $errorCode
      */
-    private function _setErrorMessage($errorCode='')
+    private function _setErrorMessage($errorCode = '')
     {
-        $this->errorMessage = trans('evatr::messages.' . $errorCode);
+        $this->errorMessage = trans('evatr::messages.'.$errorCode);
     }
+
 }

@@ -1,11 +1,13 @@
-<?php namespace Codedge\Evatr\Facades;
+<?php
+
+namespace Codedge\Evatr\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 class Evatr extends Facade
 {
     /**
-     * Get the registered component name
+     * Get the registered component name.
      *
      * @return string
      */
@@ -13,4 +15,5 @@ class Evatr extends Facade
     {
         return 'evatr';
     }
+
 }

@@ -1,4 +1,6 @@
-<?php namespace Codedge\Evatr;
+<?php
+
+namespace Codedge\Evatr;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -13,8 +15,6 @@ class EvatrServiceProvider extends ServiceProvider
 
     /**
      * Perform post-registration booting of services.
-     *
-     * @return void
      */
     public function boot()
     {
@@ -41,4 +41,5 @@ class EvatrServiceProvider extends ServiceProvider
     {
         return ['evatr'];
     }
+
 }
