@@ -41,5 +41,4 @@ class EvatrServiceProvider extends ServiceProvider
     {
         return ['evatr'];
     }
-
 }
