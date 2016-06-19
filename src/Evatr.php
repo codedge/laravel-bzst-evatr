@@ -251,5 +251,4 @@ class Evatr
     {
         $this->xmlResponse = new EvatrXmlResponse($this->response->value()->me['string']);
     }
-
 }
