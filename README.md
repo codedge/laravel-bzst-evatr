@@ -1,4 +1,7 @@
 # Laravel 5 package for EVATR - Validating VAT IDs
+
+[![StyleCI](https://styleci.io/repos/61383981/shield)](https://styleci.io/repos/61383981)
+
 This library is a wrapper for the XmlRPC interface to validate European VAT IDs.  
 See https://evatr.bff-online.de/eVatR/xmlrpc/ (German version).
 
