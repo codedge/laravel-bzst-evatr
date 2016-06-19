@@ -31,6 +31,41 @@ Next run:
 `php artisan vendor:publish` 
 to publish the translation files of the library to `resources/lang/vendor/evatr/<locale>/messages.php`. 
 
+Don't forget to add the _Service Provider_ to your `config/app.php` `[1]` and optionally the _facade_ `[2]`:
+```php
+// config/app.php
+
+return [
+
+    //...
+    
+    'providers' => [
+        // ...
+        
+        /*
+         * Application Service Providers...
+         */
+        App\Providers\AppServiceProvider::class,
+        App\Providers\AuthServiceProvider::class,
+        App\Providers\EventServiceProvider::class,
+        App\Providers\RouteServiceProvider::class,
+        Codedge\Evatr\EvatrServiceProvider::class, // [1]
+    ],
+    
+    // ...
+    
+    'aliases' => [
+        'App' => Illuminate\Support\Facades\App::class,
+        'Artisan' => Illuminate\Support\Facades\Artisan::class,
+        
+        // ...
+        
+        'View' => Illuminate\Support\Facades\View::class,
+        'Evatr' => Codedge\Evatr\Facades\Evatr::class, // [2]
+
+]
+```
+
 ## Usage
 If using the facade, just do:
 ```php
