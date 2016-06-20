@@ -327,8 +327,8 @@ class EvatrXmlResponse extends AbstractEvatr
             null,
         ];
 
-        if (!empty($string)) {
-            $arr = preg_split('/\\' . $delim . '/', $string);
+        if (! empty($string)) {
+            $arr = preg_split('/\\'.$delim.'/', $string);
         }
 
         return $arr;

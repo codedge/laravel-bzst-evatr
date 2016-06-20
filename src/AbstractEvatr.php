@@ -3,11 +3,10 @@
 namespace Codedge\Evatr;
 
 /**
- * Abstract class for Evatr
+ * Abstract class for Evatr.
  *
  * @author Holger Lösken <holger.loesken@codedge.de>
  * @copyright See LICENSE file that was distributed with this source code.
- *
  */
 abstract class AbstractEvatr
 {
@@ -27,7 +26,7 @@ abstract class AbstractEvatr
     }
 
     /**
-     * Set the print confirmation option. Translates booleans to strings
+     * Set the print confirmation option. Translates booleans to strings.
      *
      * @param bool $option
      *
