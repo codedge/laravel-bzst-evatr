@@ -1,6 +1,7 @@
 # Laravel 5 package for EVATR - Validating VAT IDs
 
 [![Latest Stable Version](https://poser.pugx.org/codedge/laravel-bzst-evatr/v/stable?format=flat-square)](https://packagist.org/packages/codedge/laravel-bzst-evatr)
+[![Build Status](https://travis-ci.org/codedge/laravel-bzst-evatr.svg?branch=master)](https://travis-ci.org/codedge/laravel-bzst-evatr)
 [![StyleCI](https://styleci.io/repos/61383981/shield)](https://styleci.io/repos/61383981)
 [![License](https://poser.pugx.org/codedge/laravel-bzst-evatr/license?format=flat-square)](https://packagist.org/packages/codedge/laravel-bzst-evatr)
 
