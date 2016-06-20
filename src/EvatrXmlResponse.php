@@ -4,7 +4,7 @@ namespace Codedge\Evatr;
 
 use Carbon\Carbon;
 
-class EvatrXmlResponse
+class EvatrXmlResponse extends AbstractEvatr
 {
     /**
      * @var \SimpleXMLElement
@@ -254,7 +254,7 @@ class EvatrXmlResponse
     /**
      * @return bool
      */
-    public function isPrintConfirmation()
+    public function getPrintConfirmation()
     {
         return $this->printConfirmation;
     }
@@ -322,26 +322,16 @@ class EvatrXmlResponse
     private function _getDateTimeArray($string = '', $delim = '.')
     {
         $arr = [
-            null, null, null,
+            null,
+            null,
+            null,
         ];
 
-        if (! empty($string)) {
-            $arr = preg_split('/\\'.$delim.'/', $string);
+        if (!empty($string)) {
+            $arr = preg_split('/\\' . $delim . '/', $string);
         }
 
         return $arr;
-    }
-
-    /**
-     * Returns the "translated" and converted valued for a confirmation/official confirmation.
-     *
-     * @param string $option
-     *
-     * @return bool
-     */
-    private function _getPrintConfirmationOption($option)
-    {
-        return $option == 'ja' ? true : false;
     }
 
     /**

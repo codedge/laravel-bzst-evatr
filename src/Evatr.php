@@ -7,7 +7,7 @@ use PhpXmlRpc\Request;
 use PhpXmlRpc\Response;
 use PhpXmlRpc\Value;
 
-class Evatr
+class Evatr extends AbstractEvatr
 {
     /**
      * Evatr connection url for the XML RPC.
@@ -48,14 +48,6 @@ class Evatr
      * @var bool
      */
     private $printConfirmation = false;
-
-    /**
-     * @var array
-     */
-    private $printOptions = [
-        'ja'    => true,
-        'nein'  => false,
-    ];
 
     /**
      * @var Client
@@ -195,13 +187,13 @@ class Evatr
     /**
      * Set if an official confirmation is requested.
      *
-     * @param bool $printConfirmation
+     * @param bool $option
      *
      * @return $this
      */
-    public function setPrintConfirmation(bool $printConfirmation)
+    public function setPrintConfirmation(bool $option)
     {
-        $this->printConfirmation = $printConfirmation;
+        $this->printConfirmation = $option;
 
         return $this;
     }
@@ -220,7 +212,7 @@ class Evatr
                 new Value($this->city),
                 new Value($this->zipCode),
                 new Value($this->street),
-                new Value($this->printConfirmation),
+                new Value($this->_setPrintConfirmationOption($this->printConfirmation)),
             ]
         ));
 
