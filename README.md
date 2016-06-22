@@ -3,6 +3,7 @@
 [![Latest Stable Version](https://poser.pugx.org/codedge/laravel-bzst-evatr/v/stable?format=flat-square)](https://packagist.org/packages/codedge/laravel-bzst-evatr)
 [![Build Status](https://travis-ci.org/codedge/laravel-bzst-evatr.svg?branch=master)](https://travis-ci.org/codedge/laravel-bzst-evatr)
 [![StyleCI](https://styleci.io/repos/61383981/shield)](https://styleci.io/repos/61383981)
+[![codecov](https://codecov.io/gh/codedge/laravel-bzst-evatr/branch/master/graph/badge.svg)](https://codecov.io/gh/codedge/laravel-bzst-evatr)
 [![License](https://poser.pugx.org/codedge/laravel-bzst-evatr/license?format=flat-square)](https://packagist.org/packages/codedge/laravel-bzst-evatr)
 
 This library is a wrapper for the XmlRPC interface to validate European VAT IDs.  
