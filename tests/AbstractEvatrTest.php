@@ -18,8 +18,8 @@ class AbstractEvatrTest extends TestCase
         /** @var AbstractEvatr $mock */
         $mock = $this->getMockForAbstractClass('Codedge\Evatr\AbstractEvatr');
 
-        $this->assertSame(true, $mock->_getPrintConfirmationOption('ja'));
-        $this->assertSame(false, $mock->_getPrintConfirmationOption('nein'));
+        $this->assertTrue($mock->_getPrintConfirmationOption('ja'));
+        $this->assertFalse($mock->_getPrintConfirmationOption('nein'));
     }
 
     public function testSetPrintConfirmationOption()
