@@ -1,8 +1,6 @@
 language: php
 
 php:
-  - 5.5
-  - 5.6
   - 7.0
 
 install:
@@ -10,3 +8,6 @@ install:
 
 script:
   - vendor/bin/phpunit --verbose --coverage-text --coverage-clover=coverage.xml
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
